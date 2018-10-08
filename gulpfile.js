@@ -11,8 +11,8 @@ gulp.task('browserSync', function() {
     server: {
       baseDir: './dist'
     },
-  })
-})
+  });
+});
 
 gulp.task("babel", function () {
   return gulp.src(baseDir + '/javascripts/*.js')
@@ -22,7 +22,7 @@ gulp.task("babel", function () {
     .pipe(gulp.dest('./dist/js'))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
 gulp.task('html', function() {
@@ -34,7 +34,7 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
 gulp.task('sass', function() {
@@ -43,11 +43,11 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.reload({
       stream: true
-    }))
-})
+    }));
+});
 
 gulp.task('watch', ['browserSync', 'html', 'sass', 'babel'], function (){
-  gulp.watch(baseDir + '/stylesheets/*.scss', ['sass'])
-  gulp.watch(baseDir + '/*.html', ['html'])
-  gulp.watch(baseDir + '/javascripts/*.js', ['babel'])
-})
+  gulp.watch(baseDir + '/stylesheets/*.scss', ['sass']);
+  gulp.watch(baseDir + '/*.html', ['html']);
+  gulp.watch(baseDir + '/javascripts/*.js', ['babel']);
+});
