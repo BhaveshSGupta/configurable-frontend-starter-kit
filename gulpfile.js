@@ -3,6 +3,7 @@ const sass = require('gulp-sass')
 const htmlmin = require('gulp-htmlmin');
 const browserSync = require('browser-sync').create()
 const babel = require("gulp-babel");
+const autoprefixer = require('gulp-autoprefixer');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 
@@ -63,6 +64,11 @@ gulp.task('sass', function () {
       })
     )
     .pipe(sass())
+    .pipe(autoprefixer({
+      // Use any option here https://github.com/browserslist/browserslist#full-list
+      browsers: ['cover 99.5%'],
+      cascade: false
+    }))
     .pipe(gulp.dest(distDir + '/css'))
     .pipe(browserSync.reload({
       stream: true
