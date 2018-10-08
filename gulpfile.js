@@ -7,7 +7,7 @@ const baseDir = './src';
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: baseDir
+      baseDir: './dist'
     },
   })
 })
