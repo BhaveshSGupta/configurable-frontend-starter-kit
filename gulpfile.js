@@ -3,6 +3,8 @@ const sass = require('gulp-sass')
 const htmlmin = require('gulp-htmlmin');
 const browserSync = require('browser-sync').create()
 const babel = require("gulp-babel");
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
 
 const baseDir = './src';
 
@@ -16,6 +18,17 @@ gulp.task('browserSync', function() {
 
 gulp.task("babel", function () {
   return gulp.src(baseDir + '/javascripts/*.js')
+    // Handles errors and prevents from breaking the pipeline
+    .pipe(
+      plumber({
+        errorHandler(err) {
+          notify.onError({
+            title: `Gulp error in ${err.plugin}`,
+            message: err.toString()
+          })(err);
+        }
+      })
+    )
     .pipe(babel({
       presets: ['@babel/preset-env']
     }))
@@ -39,6 +52,17 @@ gulp.task('html', function() {
 
 gulp.task('sass', function() {
     return gulp.src(baseDir + '/stylesheets/*.scss')
+    // Handles errors and prevents from breaking the pipeline
+    .pipe(
+      plumber({
+        errorHandler(err) {
+          notify.onError({
+            title: `Gulp error in ${err.plugin}`,
+            message: err.toString()
+          })(err);
+        }
+      })
+    )
     .pipe(sass())
     .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.reload({
