@@ -1,4 +1,4 @@
-# Configurable FrontEnd Starter Kit
+# Configurable Front-End Starter Kit
 `v0.0.1` <br><br>
 A Modern configurable FrontEnd Starter Kit.
 
