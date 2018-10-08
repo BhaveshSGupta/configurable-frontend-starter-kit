@@ -15,7 +15,8 @@
   "devDependencies": {
     "browser-sync": "^2.24.6",
     "gulp": "^3.9.1",
-    "gulp-sass": "^4.0.1"
+    "gulp-sass": "^4.0.1",
+    "gulp-htmlmin": "^5.0.1"
   },
   "author": "",
   "license": "MIT",
