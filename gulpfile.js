@@ -18,7 +18,6 @@ gulp.task('browserSync', function() {
 
 gulp.task("babel", function () {
   return gulp.src(baseDir + '/javascripts/*.js')
-    // Handles errors and prevents from breaking the pipeline
     .pipe(
       plumber({
         errorHandler(err) {
@@ -51,8 +50,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('sass', function() {
-    return gulp.src(baseDir + '/stylesheets/*.scss')
-    // Handles errors and prevents from breaking the pipeline
+  return gulp.src(baseDir + '/stylesheets/*.scss')
     .pipe(
       plumber({
         errorHandler(err) {
