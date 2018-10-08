@@ -4,11 +4,18 @@
   "description": "A mordern configurable front-end starter kit",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/.bin/gulp watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BhaveshSGupta/configurable-frontend-starter-kit.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
   },
   "author": "",
   "license": "MIT",
