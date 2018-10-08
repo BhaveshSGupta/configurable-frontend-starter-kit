@@ -19,7 +19,10 @@ gulp.task('html', function() {
       collapseWhitespace: true,
       removeComments: true
     }))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist'))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 });
 
 gulp.task('sass', function() {
@@ -33,6 +36,6 @@ gulp.task('sass', function() {
 
 gulp.task('watch', ['browserSync', 'html', 'sass'], function (){
   gulp.watch(baseDir + '/stylesheets/*.scss', ['sass'])
-
+  gulp.watch(baseDir + '/*.html', ['html'])
   gulp.watch(baseDir + '/javascripts/*.js', browserSync.reload)
 })
