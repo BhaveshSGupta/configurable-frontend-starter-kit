@@ -1,0 +1,19 @@
+{
+  "name": "configurable-frontend-starter-kit",
+  "version": "0.0.1",
+  "description": "A mordern configurable front-end starter kit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BhaveshSGupta/configurable-frontend-starter-kit.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BhaveshSGupta/configurable-frontend-starter-kit/issues"
+  },
+  "homepage": "https://github.com/BhaveshSGupta/configurable-frontend-starter-kit#readme"
+}
