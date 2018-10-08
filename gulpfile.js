@@ -5,11 +5,12 @@ const browserSync = require('browser-sync').create()
 const babel = require("gulp-babel");
 
 const baseDir = './src';
+const distDir = './dist';
 
-gulp.task('browserSync', function() {
+gulp.task('browserSync', function () {
   browserSync.init({
     server: {
-      baseDir: './dist'
+      baseDir: distDir
     },
   });
 });
@@ -19,34 +20,34 @@ gulp.task("babel", function () {
     .pipe(babel({
       presets: ['@babel/preset-env']
     }))
-    .pipe(gulp.dest('./dist/js'))
+    .pipe(gulp.dest(distDir + '/js'))
     .pipe(browserSync.reload({
       stream: true
     }));
 });
 
-gulp.task('html', function() {
+gulp.task('html', function () {
   return gulp.src([baseDir + '/*.html'])
     .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true
     }))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest(distDir))
     .pipe(browserSync.reload({
       stream: true
     }));
 });
 
-gulp.task('sass', function() {
-    return gulp.src(baseDir + '/stylesheets/*.scss')
+gulp.task('sass', function () {
+  return gulp.src(baseDir + '/stylesheets/*.scss')
     .pipe(sass())
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest(distDir + '/css'))
     .pipe(browserSync.reload({
       stream: true
     }));
 });
 
-gulp.task('watch', ['browserSync', 'html', 'sass', 'babel'], function (){
+gulp.task('watch', ['browserSync', 'html', 'sass', 'babel'], function () {
   gulp.watch(baseDir + '/stylesheets/*.scss', ['sass']);
   gulp.watch(baseDir + '/*.html', ['html']);
   gulp.watch(baseDir + '/javascripts/*.js', ['babel']);
