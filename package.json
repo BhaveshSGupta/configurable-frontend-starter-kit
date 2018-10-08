@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node_modules/.bin/gulp watch",
-    "lint:styles": "stylelint src"
+    "lint:styles": "stylelint src",
+    "lint:editorconfig": "editorconfig-checker ."
   },
   "repository": {
     "type": "git",
@@ -15,6 +16,7 @@
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.24.6",
+    "editorconfig-checker": "^1.3.3",
     "gulp": "^3.9.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-sass": "^4.0.1",
