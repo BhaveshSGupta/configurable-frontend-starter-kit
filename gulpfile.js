@@ -3,6 +3,7 @@ const sass = require('gulp-sass')
 const htmlmin = require('gulp-htmlmin');
 const browserSync = require('browser-sync').create()
 const babel = require("gulp-babel");
+const autoprefixer = require('gulp-autoprefixer');
 
 const baseDir = './src';
 const distDir = './dist';
@@ -41,6 +42,11 @@ gulp.task('html', function () {
 gulp.task('sass', function () {
   return gulp.src(baseDir + '/stylesheets/*.scss')
     .pipe(sass())
+    .pipe(autoprefixer({
+      // Use any option here https://github.com/browserslist/browserslist#full-list
+      browsers: ['cover 99.5%'],
+      cascade: false
+    }))
     .pipe(gulp.dest(distDir + '/css'))
     .pipe(browserSync.reload({
       stream: true
