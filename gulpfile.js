@@ -10,23 +10,23 @@ const notify = require('gulp-notify')
 const baseDir = './src'
 const distDir = './dist'
 
-gulp.task("browserSync", function () {
-	browserSync.init({
-		server: {
+gulp.task('browserSync', function () {
+  browserSync.init({
+    server: {
       baseDir: distDir
-    },
-  });
-});
+    }
+  })
+})
 
 gulp.task('babel', function () {
   return gulp.src(baseDir + '/javascripts/*.js')
     .pipe(
       plumber({
-        errorHandler(err) {
+        errorHandler (err) {
           notify.onError({
             title: `Gulp error in ${err.plugin}`,
             message: err.toString()
-          })(err);
+          })(err)
         }
       })
     )
@@ -36,8 +36,8 @@ gulp.task('babel', function () {
     .pipe(gulp.dest(distDir + '/js'))
     .pipe(browserSync.reload({
       stream: true
-    }));
-});
+    }))
+})
 
 gulp.task('html', function () {
   return gulp.src([baseDir + '/*.html'])
@@ -48,18 +48,18 @@ gulp.task('html', function () {
     .pipe(gulp.dest(distDir))
     .pipe(browserSync.reload({
       stream: true
-    }));
-});
+    }))
+})
 
 gulp.task('sass', function () {
   return gulp.src(baseDir + '/stylesheets/*.scss')
     .pipe(
       plumber({
-        errorHandler(err) {
+        errorHandler (err) {
           notify.onError({
             title: `Gulp error in ${err.plugin}`,
             message: err.toString()
-          })(err);
+          })(err)
         }
       })
     )
@@ -72,11 +72,11 @@ gulp.task('sass', function () {
     .pipe(gulp.dest(distDir + '/css'))
     .pipe(browserSync.reload({
       stream: true
-    }));
-});
+    }))
+})
 
 gulp.task('watch', ['browserSync', 'html', 'sass', 'babel'], function () {
-  gulp.watch(baseDir + '/stylesheets/*.scss', ['sass']);
-  gulp.watch(baseDir + '/*.html', ['html']);
-  gulp.watch(baseDir + '/javascripts/*.js', ['babel']);
-});
+  gulp.watch(baseDir + '/stylesheets/*.scss', ['sass'])
+  gulp.watch(baseDir + '/*.html', ['html'])
+  gulp.watch(baseDir + '/javascripts/*.js', ['babel'])
+})
