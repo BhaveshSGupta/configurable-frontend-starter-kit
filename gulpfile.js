@@ -1,24 +1,24 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
-const htmlmin = require('gulp-htmlmin');
+const htmlmin = require('gulp-htmlmin')
 const browserSync = require('browser-sync').create()
-const babel = require("gulp-babel");
-const autoprefixer = require('gulp-autoprefixer');
-const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
+const babel = require('gulp-babel')
+const autoprefixer = require('gulp-autoprefixer')
+const plumber = require('gulp-plumber')
+const notify = require('gulp-notify')
 
-const baseDir = './src';
-const distDir = './dist';
+const baseDir = './src'
+const distDir = './dist'
 
-gulp.task('browserSync', function () {
-  browserSync.init({
-    server: {
+gulp.task("browserSync", function () {
+	browserSync.init({
+		server: {
       baseDir: distDir
     },
   });
 });
 
-gulp.task("babel", function () {
+gulp.task('babel', function () {
   return gulp.src(baseDir + '/javascripts/*.js')
     .pipe(
       plumber({
