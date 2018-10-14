@@ -6,5 +6,3 @@ Currently we are using gulp to perform some of the basic tasks pertaining to wha
 
 ## MIT License
 Please create an issue if you feel that we need to add anything.
-
-
