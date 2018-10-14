@@ -6,7 +6,6 @@ const babel = require('gulp-babel')
 const autoprefixer = require('gulp-autoprefixer')
 const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
-
 const baseDir = './src'
 const distDir = './dist'
 
