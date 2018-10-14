@@ -10,9 +10,9 @@ const notify = require('gulp-notify')
 const baseDir = './src'
 const distDir = './dist'
 
-gulp.task("browserSync", function () {
-	browserSync.init({
-		server: {
+gulp.task('browserSync', function () {
+  browserSync.init({
+    server: {
       baseDir: distDir
     }
   })
