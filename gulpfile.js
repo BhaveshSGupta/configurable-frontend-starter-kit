@@ -77,7 +77,6 @@ gulp.task('sass', function () {
 })
 gulp.task('watch', ['browserSync', 'html', 'sass','css','babel'], function () {
 	gulp.watch(baseDir + '/stylesheets/*.scss', ['sass'])
-	gulp.watch(baseDir + '/stylesheets/*.css', ['css'])
   gulp.watch(baseDir + '/*.html', ['html'])
   gulp.watch(baseDir + '/javascripts/*.js', ['babel'])
 })
