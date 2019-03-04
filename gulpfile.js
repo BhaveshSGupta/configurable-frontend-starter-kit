@@ -75,7 +75,7 @@ gulp.task('sass', function () {
       stream: true
     }))
 })
-gulp.task('watch', ['browserSync', 'html', 'sass','css','babel'], function () {
+gulp.task('watch', ['browserSync', 'html', 'sass','babel'], function () {
 	gulp.watch(baseDir + '/stylesheets/*.scss', ['sass'])
   gulp.watch(baseDir + '/*.html', ['html'])
   gulp.watch(baseDir + '/javascripts/*.js', ['babel'])
