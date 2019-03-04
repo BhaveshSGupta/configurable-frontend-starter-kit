@@ -1,4 +1,3 @@
-/* eslint-disable */
 const gulp = require('gulp')
 const sass = require('gulp-sass')
 const htmlmin = require('gulp-htmlmin')
@@ -33,7 +32,6 @@ gulp.task('babel', function () {
     .pipe(babel({
       presets: ['@babel/preset-env']
     }))
-    // .pipe(uglify())
     .pipe(gulp.dest(distDir + '/js'))
     .pipe(browserSync.reload({
       stream: true
@@ -76,8 +74,8 @@ gulp.task('sass', function () {
     }))
 })
 
-gulp.task('watch', ['browserSync', 'html', 'sass','babel'], function () {
-	gulp.watch(baseDir + '/stylesheets/*.scss', ['sass'])
+gulp.task('watch', ['browserSync', 'html', 'sass', 'babel'], function () {
+  gulp.watch(baseDir + '/stylesheets/*.scss', ['sass'])
   gulp.watch(baseDir + '/*.html', ['html'])
   gulp.watch(baseDir + '/javascripts/*.js', ['babel'])
 })
